@@ -81,8 +81,8 @@
     NSError *err                = nil;
     
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
-                                             returningResponse:&response
-                                                         error:&err];
+                                         returningResponse:&response
+                                                     error:&err];
     if (err || ((NSHTTPURLResponse *)response).statusCode != 200 || !data) {
         return nil;
     }
@@ -100,7 +100,7 @@
 
 
 + (VENVersion *)currentLocalVersion {
-    NSString *versionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleVersion"];
+    NSString *versionString = [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
     
     if (!versionString) { //Not in a bundle -- return 0
         versionString = @"0";
